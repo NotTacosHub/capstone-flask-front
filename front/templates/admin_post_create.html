@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+{% include 'includes/_post_form.html'%}
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button id="btn_submit" class="button is-link">Submit</button>
+    </div>
+    <div class="control">
+      <button id="btn_cancel" class="button is-link is-light">Cancel</button>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+const submitButton = document.getElementById('btn_submit');
+  submitButton.addEventListener('click', function(){
+    const slugVal = document.getElementById('blog_slug').value;
+    const titleVal = document.getElementById('blog_title').value;
+    const authorVal = document.getElementById('blog_author').value;
+    const dateVal = document.getElementById('blog_published_date').value;
+    const contentVal = document.getElementById('blog_content').value;
+    createBlogPost(slugVal, titleVal,authorVal, dateVal, contentVal);
+  });
+</script>
+{% endblock scripts %}

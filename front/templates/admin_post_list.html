@@ -1,0 +1,32 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+<div id = "blog_posts"></div>
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+    function appendPost(post){
+
+        console.log("adding post: " + post);
+        const postDiv = document.createElement("div");
+        document.getElementById("blog_posts").appendChild(postDiv);
+
+        // Title
+        const titleElem = document.createElement("a");
+        titleElem.innerHTML = post['title'];
+        titleElem.href = `/admin/post/update/${post['slug']}`;
+        postDiv.appendChild(titleElem);
+
+    }
+
+    readAllBlogPosts(function(){
+        if (this.readyState == 4 && this.status == 200) {
+            const posts = JSON.parse(this.responseText);
+            
+            for( const post of posts){
+                appendPost(post);
+            }
+        }
+    });
+</script>
+{% endblock scripts %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- blog/templates/blog/post_list.html -->
+
+<div id="blog_post">
+    {#
+    <h2>{{ object.blog_title }}</h2>
+    <p>{{ object.blog_content | markdown | safe }}</p>
+    <p>{{ object.blog_author }}</p>
+    <p>{{ object.published_date }}</p>
+    #}
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+<script type="text/javascript">
+const slug = "{{slug}}";
+console.log(slug);
+readBlogPost(slug, function(){
+    if (this.readyState == 4 && this.status == 200) {
+    console.log("returned post" + this.responseText);
+    const blog_post = document.getElementById("blog_post");
+    const postInfo = JSON.parse(this.responseText);
+
+    // Title
+    const titleElem = document.createElement("h2");
+    titleElem.innerHTML = postInfo["title"];
+    blog_post.appendChild(titleElem);
+    
+    // Content
+    const cntElem = document.createElement("p");
+    cntElem.innerHTML = postInfo["content"];
+    blog_post.appendChild(cntElem);
+
+    // Author
+    const authElem = document.createElement("p");
+    authElem.innerHTML = postInfo["author"];
+    blog_post.appendChild(authElem);
+
+    // Date
+    const dateField = document.createElement("p");
+    dateField.innerHTML = postInfo["published_date"];
+    blog_post.appendChild(dateField);
+
+    };
+});
+
+
+</script>
+{% endblock scripts %}

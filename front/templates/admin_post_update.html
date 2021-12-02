@@ -1,0 +1,69 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+ <div class="field">
+    <label class="label">ID</label>
+    <div class="control">
+      <input id="blog_id" class="input" type="text" placeholder="Text input" disabled>
+    </div>
+  </div>
+{% include 'includes/_post_form.html'%}
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button id="btn_save" class="button is-link">Save</button>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button id="btn_delete" class="button is-danger">Delete</button>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+const slug = "{{slug}}";
+const saveButton = document.getElementById('btn_save');
+const deleteButton = document.getElementById('btn_delete');
+const idField = document.getElementById('blog_id');
+const slugField = document.getElementById('blog_slug');
+const titleField = document.getElementById('blog_title');
+const authorField = document.getElementById('blog_author');
+const dateField = document.getElementById('blog_published_date');
+const contentField = document.getElementById('blog_content');
+
+// Populate Existing Values
+document.addEventListener('DOMContentLoaded', function(){
+  readBlogPost(slug,function(){
+    if (this.readyState == 4 && this.status == 200) {
+      const data = JSON.parse(this.responseText);
+      console.log(data);
+      idField.value = data['id'];
+      slugField.value = data['slug'];
+      titleField.value = data['title'];
+      authorField.value = data['author'];
+      contentField.value = data['content'];
+      dateField.value = data['published_date'];
+    }
+  });
+});
+
+//const updateBlogPost = (newSlugVal, newTitleVal, newAuthorVal, newDateVal, newContentVal);
+  saveButton.addEventListener('click', function(){
+    updateBlogPost(
+      idField.value,
+      slugField.value,
+      titleField.value,
+      authorField.value,
+      dateField.value,
+      contentField.value);
+
+  });
+
+  deleteButton.addEventListener('click',function(){
+    deleteBlogPost(slug,function(){
+      window.location.replace("/admin/post/list");
+    });
+  });
+</script>
+{% endblock scripts %}

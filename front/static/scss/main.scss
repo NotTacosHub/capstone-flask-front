@@ -1,0 +1,74 @@
+html {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height:100%;
+
+    div.main-wrapper {
+        width: 100%;
+        flex-grow: 1;
+        flex-basis: 100%;
+
+    }
+}
+
+
+
+#headline {
+    font-family: "Comic Sans MS";
+    background-color: slategray;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    //text-align: center;
+    font-size: 3rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+                 -8px 8px #f48fb1,
+                 -12px 12px #7e57c2,
+                 -16px 16px #2196f3,
+                 -20px 20px #26c6da,
+                 -24px 24px #43a047,
+                 -28px 28px #eeff41,
+                 -32px 32px #f9a825,
+                 -36px 36px #ff5722;
+}
+
+nav.navbar {
+    font-size: 18px;
+    font-family: 'Play', sans-serif;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: right;
+    font-family: 'Anton', sans-serif;
+}
+
+footer {
+    width: 100%;
+    font-family: 'Playfair Display', serif;
+
+    ul {
+        margin-left:5px;
+    }
+}
+
+.social-media-icons {
+    size: 84px;
+}
+
+#facebook-posts {
+    display: flex;
+    margin-left: 50px;
+    background-color: slategray;
+}
+
+// background colors
+// #b0ca87 'green'
+// #fefae0 'cornsilk'
+// slategray
+// #a68a64 'camel'
+// #c6c5b9 'silver'

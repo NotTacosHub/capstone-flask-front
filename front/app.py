@@ -1,9 +1,15 @@
 from flask import Flask
 from flask import render_template
+from flask_assets import Environment, Bundle
 from flask_cors import CORS
 app = Flask(__name__)
 
 CORS(app)
+
+assets = Environment(app)
+assets.url = app.static_url_path
+scss = Bundle('scss/main.scss', filters='pyscss', output='css/main.css')
+assets.register('scss_all', scss)
 
 
 @app.route("/")

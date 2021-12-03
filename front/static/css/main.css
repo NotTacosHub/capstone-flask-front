@@ -1,50 +1,43 @@
 html {
-  height: 100vh;
-  background-color: slategray;
-}
+  height: 100vh; }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-body div.main-wrapper {
-  width: 100%;
-  flex-grow: 1;
-  flex-basis: 100%;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; }
+    body div.main-wrapper {
+      width: 100%;
+      flex-grow: 1;
+      flex-basis: 100%; }
 
 #headline {
   font-family: "Comic Sans MS";
+  background-color: slategray;
   margin-bottom: 50px;
   margin-left: 30px;
   font-size: 3rem;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
   color: #fff;
-  text-shadow: -4px 4px #ef3550, -8px 8px #f48fb1, -12px 12px #7e57c2, -16px 16px #2196f3, -20px 20px #26c6da, -24px 24px #43a047, -28px 28px #eeff41, -32px 32px #f9a825, -36px 36px #ff5722;
-}
+  text-shadow: -4px 4px #ef3550, -8px 8px #f48fb1, -12px 12px #7e57c2, -16px 16px #2196f3,
+    -20px 20px #26c6da, -24px 24px #43a047, -28px 28px #eeff41, -32px 32px #f9a825,
+    -36px 36px #ff5722; }
 
-nav.navbar {
-  font-size: 18px;
-  font-family: 'Play', sans-serif;
-  font-family: 'Anton', sans-serif;
-}
+  nav.navbar {
+    font-size: 18px;
+    font-family: 'Play', sans-serif;
+    font-family: 'Anton', sans-serif; }
 
-footer {
-  width: 100%;
-  font-family: 'Playfair Display', serif;
-}
-
-footer ul {
-  margin-left: 5px;
-}
+    footer {
+      width: 100%;
+      font-family: 'Playfair Display', serif; }
+      footer ul {
+        margin-left: 5px; }
 
 .social-media-icons {
-  size: 84px;
-}
+  size: 84px; }
 
-#facebook-posts {
-  margin-left: 50px;
-}
+  #facebook-posts {
+    display: flex;
+    margin-left: 50px;
+    background-color: slategray; }

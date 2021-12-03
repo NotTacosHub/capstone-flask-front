@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    My index title
+My index title
 {% endblock title %}
 
 {% block content %}
@@ -13,29 +13,29 @@
 
 {% block scripts %}
 
-    <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
-    <script type="text/javascript">
-        //AJAX REQUEST TO BACK END
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            console.log('running');
-            if (this.readyState == 4 && this.status == 200) {
-                const fbdiv = document.getElementById("facebook-posts");
-                const data = JSON.parse(this.responseText);
-                const posts = data['posts']['data'];
-                for (post of posts) {
-                    if (post['message'] !== undefined) {
-                        console.log(post['message']);
-                        postelem = document.createElement("div");
-                        postelem.textContent = post['message'];
-                        fbdiv.appendChild(postelem);
-                    }
+<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+<script type="text/javascript">
+    //AJAX REQUEST TO BACK END
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        console.log('running');
+        if (this.readyState == 4 && this.status == 200) {
+            const fbdiv = document.getElementById("facebook-posts");
+            const data = JSON.parse(this.responseText);
+            const posts = data['posts']['data'];
+            for (post of posts) {
+                if (post['message'] !== undefined) {
+                    console.log(post['message']);
+                    postelem = document.createElement("div");
+                    postelem.textContent = post['message'];
+                    fbdiv.appendChild(postelem);
                 }
-            }
-        };
-        xhttp.open("GET", `${hostUrl}api/facebook/getposts`, true);
-        xhttp.setRequestHeader("Content-Type", "application/json");
-        xhttp.send();
-    </script>
+            } asdfasdfasfa
+        }
+    };
+    xhttp.open("GET", `${hostUrl}api/facebook/getposts`, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send();
+</script>
 {% endblock scripts %}
 /

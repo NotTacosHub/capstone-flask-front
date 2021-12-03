@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/https://clayton-smith-capstone-project.herokuapp.com")
+@app.route("/")
 def index():
     return render_template('index.html')
 

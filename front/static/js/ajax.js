@@ -261,7 +261,7 @@ function sendAjax(method, url, obj, callBack) {
     //xhttp.setRequestHeader("Access-Control-Allow-Origin", 'http://127.0.0.1:8082');
     // xhttp.setRequestHeader('Access-Control-Allow-Credentials: true');
     // xhttp.setRequestHeader('Access-Control-Allow-Methods: POST');
-    // xhttp.setRequestHeader('Access-Control-Allow-Headers: Content-Type' );
+    // xhttp.setRequestHeader('Access-Control-Allow-Headers: Content-Type');
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.send(JSON.stringify(obj));
 }

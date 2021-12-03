@@ -26,10 +26,12 @@ html {
   nav.navbar {
     font-size: 18px;
     font-family: 'Play', sans-serif;
-    font-family: 'Anton', sans-serif; }
+    font-family: 'Anton', sans-serif;
+    background-color: slategray; }
 
     footer {
-      width: 100%;
+      background-color: slategray;
+      width: 100vw;
       font-family: 'Playfair Display', serif; }
       footer ul {
         margin-left: 5px; }
@@ -37,7 +39,16 @@ html {
 .social-media-icons {
   size: 84px; }
 
+.facebook-headline{
+  font-family: 'Anton', sans-serif;
+  font-size: large;
+  text-decoration: underline;
+
+}
+
   #facebook-posts {
-    display: flex;
-    margin-left: 50px;
-    background-color: slategray; }
+    width: 220px;
+    background-color: slategray;
+    color: lightblue;
+    height: 79.6vh;
+  }

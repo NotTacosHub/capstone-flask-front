@@ -6,12 +6,25 @@ My index title
 
 {% block content %}
 <div id=facebook-posts>
-    <h3>Recent Posts</h3>
+    <div class='hex-button'>
+        <h3 id="btn">Recent Posts</h3>
+    </div>
 </div>
 
 {% endblock %}
 
 {% block scripts %}
+<script>
+    const button = document.querySelector('.hex-button');
+
+
+    button.addEventListener('click', (event) => {
+        const hexColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        event.target.innerHTML = hexColor;
+
+        const background = document.querySelector('body');
+        background.style.backgroundColor = hexColor;
+    })</script>
 
 <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
 <script type="text/javascript">
@@ -30,7 +43,7 @@ My index title
                     postelem.textContent = post['message'];
                     fbdiv.appendChild(postelem);
                 }
-            } asdfasdfasfa
+            }
         }
     };
     xhttp.open("GET", `${hostUrl}api/facebook/getposts`, true);

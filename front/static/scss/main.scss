@@ -43,6 +43,7 @@ nav.navbar {
     //flex-direction: column;
     //justify-content: right;
     font-family: 'Anton', sans-serif;
+    background-color: slategray;
 }
 
 footer {
@@ -59,8 +60,8 @@ footer {
 }
 
 #facebook-posts {
-    display: flex;
     margin-left: 50px;
+    text-size: 50px;
     background-color: slategray;
 }
 

@@ -250,14 +250,10 @@
 //     }
 // });
 
-const domain = "https://clayton-smith-capstone-project.herokuapp.com";
-
-const hostUrl = `${domain}/`
-
 function sendAjax(method, url, obj, callBack) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = callBack;
-    xhttp.open(method, `${hostUrl}`, true);
+    xhttp.open(method, `"https://clayton-smith-capstone-project.herokuapp.com";`, true);
     //xhttp.setRequestHeader("Access-Control-Allow-Origin", 'http://127.0.0.1:8082');
     // xhttp.setRequestHeader('Access-Control-Allow-Credentials: true');
     // xhttp.setRequestHeader('Access-Control-Allow-Methods: POST');

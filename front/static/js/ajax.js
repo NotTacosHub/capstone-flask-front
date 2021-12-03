@@ -250,10 +250,17 @@
 //     }
 // });
 
+// const domain = "http://127.0.0.1";
+const domain = "https://clayton-smith-capstone-project.herokuapp.com";
+//const port = 8082;
+
+//const hostUrl = `${domain}:${port}/`
+const hostUrl = `${domain}/`
+
 function sendAjax(method, url, obj, callBack) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = callBack;
-    xhttp.open(method, `"https://clayton-smith-capstone-project.herokuapp.com";`, true);
+    xhttp.open(method, `${hostUrl}${url}`, true);
     //xhttp.setRequestHeader("Access-Control-Allow-Origin", 'http://127.0.0.1:8082');
     // xhttp.setRequestHeader('Access-Control-Allow-Credentials: true');
     // xhttp.setRequestHeader('Access-Control-Allow-Methods: POST');
@@ -271,7 +278,7 @@ function createBlogPost(slug, title, author, published_date, content) {
         content: content,
     };
 
-    sendAjax("POST", "https://clayton-smith-capstone-project.herokuapp.com/api/blog/create", newPost, function () {
+    sendAjax("POST", "/api/blog/create", newPost, function () {
         console.log("created post " + this.responseText);
     });
 }
@@ -281,7 +288,7 @@ function readBlogPost(slug, callBack) {
         slug: slug,
     };
 
-    sendAjax("POST", "https://clayton-smith-capstone-project.herokuapp.com/api/blog/read", readPost, callBack);
+    sendAjax("POST", "/api/blog/read", readPost, callBack);
 }
 
 function updateBlogPost(id, slug, title, author, published_date, content) {
@@ -293,7 +300,7 @@ function updateBlogPost(id, slug, title, author, published_date, content) {
         published_date: published_date,
         content: content,
     }
-    sendAjax("POST", "https://clayton-smith-capstone-project.herokuapp.com/api/blog/update", updatePost, function () {
+    sendAjax("POST", "/api/blog/update", updatePost, function () {
         console.log("updated post " + this.responseText);
     });
 }
@@ -302,9 +309,9 @@ function deleteBlogPost(slug, callBack) {
     const deletePost = {
         slug: slug
     };
-    sendAjax("DELETE", "https://clayton-smith-capstone-project.herokuapp.com/api/blog/delete", deletePost, callBack);
+    sendAjax("DELETE", "/api/blog/delete", deletePost, callBack);
 }
 
 function readAllBlogPosts(callBack) {
-    sendAjax("GET", "https://clayton-smith-capstone-project.herokuapp.com/api/blog/list", {}, callBack);
+    sendAjax("GET", "/api/blog/list", {}, callBack);
 }

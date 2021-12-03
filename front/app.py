@@ -37,4 +37,4 @@ def admin_post_list():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8081)
+    app.run(debug=True)
